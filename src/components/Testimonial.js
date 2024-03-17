@@ -65,16 +65,16 @@ const Testimonial = () => {
                         </svg>
                       </div>
                       <div className="text">
-                        <p>{data.review}</p>
+                        <p>{data?.review}</p>
                       </div>
                       <div className="short">
                         <div className="image">
                           <div className="main" />
-                          <img src={data.image.url} alt="Description" />
+                          <img src={data?.image?.url} alt="Description" />
                         </div>
                         <div className="detail">
-                          <h3>{data.name}</h3>
-                          <span>{data.position}</span>
+                          <h3>{data?.name}</h3>
+                          <span>{data?.position}</span>
                         </div>
                       </div>
                     </SwiperSlide>
