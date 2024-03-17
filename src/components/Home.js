@@ -1,7 +1,7 @@
 import parse from "html-react-parser";
 import { useEffect, useState } from "react";
 import { fatchData } from "../utilits";
-import { useTheme } from "../../pages/Contex";
+import { useTheme } from "./Contex";
 
 const Home = ({ dark }) => {
   const {user} = useTheme();
@@ -10,11 +10,15 @@ const Home = ({ dark }) => {
 
 
   useEffect(()=>{
-    setAbout(user.about)
-    console.log(about);
-  })
+    setAbout(user.about);
+  }, [user.about])
   useEffect(async () => {
-    setData(await fatchData("/static/info.json"));
+    const fetchData = async () => {
+      const infoData = await fatchData("/static/info.json");
+      setData(infoData);
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -67,7 +71,7 @@ const Home = ({ dark }) => {
             <div className="avatar">
               <div className="image">
                 <img
-                  src={about?.avatar?.url}
+                  src={about && about.avatar && about.avatar.url}
                   alt="image"
                 />
                 {data &&

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useTheme } from "../../pages/Contex";
+import { useTheme } from "./Contex";
 import Counter from "./Counter";
 const About = ({ dark }) => {
   const {user} = useTheme();

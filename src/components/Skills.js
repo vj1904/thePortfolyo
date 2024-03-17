@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { activeSkillProgress, fatchData } from "../utilits";
-import { useTheme } from "../../pages/Contex";
+import { useTheme } from "./Contex";
 
 const Skills = ({ dark }) => {
   const getDefaultColor = (index) => {

@@ -2,7 +2,7 @@ import parse from "html-react-parser";
 import { useEffect, useState } from "react";
 import { fatchData } from "../utilits";
 import ServicePopup from "./popup/ServicePopup";
-import { useTheme } from "../../pages/Contex";
+import { useTheme } from "./Contex";
 
 const Service = ({ dark }) => {
   const {user} = useTheme()

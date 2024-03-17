@@ -1,4 +1,4 @@
-import { useTheme } from "../../pages/Contex";
+import { useTheme } from "./Contex";
 const Contact = () => {
   const {user} = useTheme();
   return (
@@ -37,7 +37,7 @@ const Contact = () => {
                       <div className="short">
                         <h3>Email</h3>
                         <span>
-                          <a href="#">{user.email}</a>
+                          <a href="#">{user?.email}</a>
                         </span>
                       </div>
                     </div>
@@ -124,7 +124,7 @@ const Contact = () => {
                   id="gmap_canvas"
                   src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 />
-                <a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon" />
+                <a href="https://www.embedgooglemap.net/blog/divi-discount-code-elegant-themes-coupon"></a>
                 <br />
               </div>
             </div>

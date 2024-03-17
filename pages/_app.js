@@ -1,7 +1,8 @@
+
 import Head from "next/head";
 import { Fragment } from "react";
 import "../styles/globals.css";
-import { ThemeProvider } from "./Contex";
+import { ThemeProvider } from "../src/components/Contex";
 
 function MyApp({ Component, pageProps }) {
   return (
