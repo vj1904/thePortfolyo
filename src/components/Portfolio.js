@@ -15,7 +15,7 @@ const Portfolio = () => {
       setData(filteredAndSortedData);
       console.log(data);
     }
-  }, []);
+  }, [user.projects]);
 
   useEffect(() => {
     dataImage();
