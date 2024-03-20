@@ -17,6 +17,7 @@ const Skills = ({ dark }) => {
         .filter(skill => skill.enabled) // Filter based on the "enabled" field
         .sort((a, b) => a.sequence - b.sequence); // Sort based on the "sequence" field
       setData(filteredAndSortedData);
+      console.log(data);
     }
   }, [user.skills]);
   

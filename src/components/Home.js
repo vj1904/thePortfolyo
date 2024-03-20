@@ -69,7 +69,7 @@ const Home = ({ dark }) => {
               </div>
             </div>
             <div className="avatar">
-              <div className="image">
+              <div >
                 <img
                   src={about && about.avatar && about.avatar.url}
                   alt="image"

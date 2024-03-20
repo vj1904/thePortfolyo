@@ -16,7 +16,9 @@ const About = ({ dark }) => {
           <div className="wrapper">
             <div className="left">
               <div className="image">
-                <img src={`img/about/${dark ? 2 : 1}.jpg`} alt="image" />
+              <img src={about && about.avatar && about.avatar.url}
+                  alt="image"
+                />
                 <div className="numbers year">
                   <div className="wrapper">
                     <h3>
