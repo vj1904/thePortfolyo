@@ -1,10 +1,9 @@
 const DetailsPopup = ({ open, close, item }) => {
-  if (!item) return null;
   return (
     <div className={`dizme_tm_modalbox ${open ? "opened" : ""}`}>
       <div className="box_inner">
         <div className="close">
-          <a href="#" onClick={close}>
+          <a href="#" onClick={() => close()}>
             <i className="icon-cancel" />
           </a>
         </div>
@@ -15,7 +14,7 @@ const DetailsPopup = ({ open, close, item }) => {
               <div
                 className="main"
                 data-img-url={item?.image?.url}
-                style={{ backgroundImage: `url(${item.image.url})` }}
+                style={{ backgroundImage: `url(${item?.image?.url})` }}
               />
             </div>
             <div className="portfolio_main_title">

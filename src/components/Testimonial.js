@@ -24,7 +24,11 @@ const Testimonial = () => {
       clickable: true,
     },
   };
+  if (!data || data.length === 0) {
+    return null; // Render nothing if data is not available or empty
+  }
 
+  const imageUrl = data.length > 0 ? data[0]?.image?.url : '';
   return (
     <div className="dizme_tm_section">
       <div className="dizme_tm_testimonials">
@@ -41,8 +45,8 @@ const Testimonial = () => {
             <div className="in">
               <Swiper {...props} className="">
                 {data &&
-                  data.map((data, i) => (
-                    <SwiperSlide key={i}>
+                  data.map((data) => (
+                    <SwiperSlide key={data._id}>
                       <div className="icon">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -69,8 +73,9 @@ const Testimonial = () => {
                       </div>
                       <div className="short">
                         <div className="image">
-                          <div className="main" />
+                          <div className="main">
                           <img src={data?.image?.url} alt="Description" />
+                          </div>
                         </div>
                         <div className="detail">
                           <h3>{data?.name}</h3>
@@ -86,25 +91,25 @@ const Testimonial = () => {
               <div
                 className="det_image one wow fadeIn"
                 data-wow-duration="1s"
-                data-img-url="img/testimonials/2.jpg"
+                style={{ backgroundImage: `url(${imageUrl})` }}
               />
               <div
                 className="det_image two wow fadeIn"
                 data-wow-duration="1s"
                 data-wow-delay="0.2s"
-                data-img-url="img/testimonials/1.jpg"
+                style={{ backgroundImage: `url(${imageUrl})` }}
               />
               <div
                 className="det_image three wow fadeIn"
                 data-wow-duration="1s"
                 data-wow-delay="0.4s"
-                data-img-url="img/testimonials/3.jpg"
+                style={{ backgroundImage: `url(${imageUrl})` }}
               />
               <div
                 className="det_image four wow fadeIn"
                 data-wow-duration="1s"
                 data-wow-delay="0.6s"
-                data-img-url="img/testimonials/4.jpg"
+                style={{ backgroundImage: `url(${imageUrl})` }}
               />
               <span className="circle green animPulse" />
               <span className="circle yellow animPulse" />
@@ -114,19 +119,19 @@ const Testimonial = () => {
               <div
                 className="det_image one wow fadeIn"
                 data-wow-duration="1s"
-                data-img-url="img/testimonials/5.jpg"
+                style={{ backgroundImage: `url(${imageUrl})` }}
               />
               <div
                 className="det_image two wow fadeIn"
                 data-wow-duration="1s"
                 data-wow-delay="0.2s"
-                data-img-url="img/testimonials/6.jpg"
+                style={{ backgroundImage: `url(${imageUrl})` }}
               />
               <div
                 className="det_image three wow fadeIn"
                 data-wow-duration="1s"
                 data-wow-delay="0.4s"
-                data-img-url="img/testimonials/7.jpg"
+                style={{ backgroundImage: `url(${imageUrl})` }}
               />
               <span className="circle yellow animPulse" />
               <span className="circle purple animPulse" />

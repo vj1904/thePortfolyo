@@ -11,11 +11,11 @@ const ServicePopup = ({ data, open, close }) => {
           <div className="description_wrap">
             <div className="service_popup_informations">
               <div className="image">
-                <img src="img/thumbs/4-2.jpg" alt="image" />
+                <img src={data?.image?.url} alt="image" />
                 <div
                   className="main"
-                  data-img-url={data && data.img}
-                  style={{ backgroundImage: `url(${data && data.img})` }}
+                  data-img-url={data && data.image && data.image.url}
+                  style={{ backgroundImage: `url(${data && data.image && data.image.url})` }}
                 />
               </div>
               <div className="main_title">
@@ -25,9 +25,7 @@ const ServicePopup = ({ data, open, close }) => {
                 </span>
               </div>
               <div className="descriptions">
-                {data &&
-                  data.dec &&
-                  data.dec.map((dec, i) => <p key={i}>{dec}</p>)}
+                {data && data.desc}
               </div>
             </div>
           </div>

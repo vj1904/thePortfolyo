@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import { aTagClick, fatchData } from "../utilits";
 import BlogPopUp from "./popup/BlogPopUp";
+import { useTheme } from "./Contex";
 const News = () => {
   const [data, setData] = useState([]);
+  const {user} = useTheme();
   const [popupData, setPopupData] = useState({});
   const [popup, setPopup] = useState(false);
-  useEffect(async () => {
-    setData(await fatchData("/static/blog.json"));
+  useEffect(() => {
+    if (user.skills) { // Add a null check
+      const filteredAndSortedData = user.skills
+        .filter(skill => skill.enabled) // Filter based on the "enabled" field
+        .sort((a, b) => a.sequence - b.sequence); // Sort based on the "sequence" field
+      setData(filteredAndSortedData);
+    }
     aTagClick();
   }, []);
   return (

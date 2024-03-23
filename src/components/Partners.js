@@ -1,10 +1,18 @@
 import { useEffect, useState } from "react";
-import { fatchData } from "../utilits";
+import { useTheme } from "./Contex";
 const Partners = ({ dark }) => {
+  const {user} = useTheme();
+
   const [data, setData] = useState([]);
-  useEffect(async () => {
-    setData(await fatchData("/static/partners.json"));
-  }, []);
+  
+  useEffect( () => {
+    if (user.social_handles) { // Add a null check
+      setData(user.social_handles
+        .filter(social_handles => social_handles.enabled));
+      console.log(data);
+    }
+  }, [user.social_handles]);
+
   return (
     <div className="dizme_tm_section">
       <div className="dizme_tm_partners">
@@ -12,19 +20,19 @@ const Partners = ({ dark }) => {
           <div className="partners_inner">
             <ul>
               {data &&
-                data.map((img, i) => (
+                data.map((social, i) => (
                   <li
                     className="wow fadeIn"
                     data-wow-duration="1s"
-                    key={i}
+                    key={social?._id}
                     data-wow-delay={`0.${i + 1 * 2}s`}
                   >
                     <div className="list_inner">
                       <img
-                        src={img.logo && img.logo[dark ? "dark" : "light"]}
+                        src={social?.image?.url}
                         alt="image"
                       />
-                      <a className="dizme_tm_full_link" a="" href={img.link} />
+                      <a className="dizme_tm_full_link" a="" href={social.url} />
                     </div>
                   </li>
                 ))}

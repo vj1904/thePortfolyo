@@ -85,17 +85,16 @@ const Service = ({ dark }) => {
                       >
                         <div className="list_inner tilt-effect">
                           <span className="icon">
-                            {parse(item.icon.svg)}
                             {dark ? (
                               <img
                                 className="back"
-                                src={item.icon.iconBgDark}
+                                src={services && services[i]?.image.url}
                                 alt="image"
                               />
                             ) : (
                               <img
                                 className="back"
-                                src={item.icon.iconBg}
+                                src={services && services[i]?.image.url}
                                 alt="image"
                               />
                             )}
